@@ -4,7 +4,7 @@
     import { searchFlights } from "../api/mock";
     import ListedFlightDetail from "./ListedFlightDetail.svelte";
     import type { FlightSearchCriteria, Flight } from "../api/mock";
-     // @ts-ignore
+    // @ts-ignore
     import { LottiePlayer } from "@lottiefiles/svelte-lottie-player";
     import { fade } from "svelte/transition";
 
@@ -124,10 +124,18 @@
         No flights found ☹️ <br /> P.S On 29th of October, there are lots of
         outbound flights from IST for national holiday
         <span class="flag">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="12" viewBox="0 -30000 90000 60000">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="12"
+                viewBox="0 -30000 90000 60000"
+            >
                 <title>Flag of Turkey</title>
-                <path fill="#e30a17" d="m0-30000h90000v60000H0z"/>
-                <path fill="#fff" d="m41750 0 13568-4408-8386 11541V-7133l8386 11541zm925 8021a15000 15000 0 1 1 0-16042 12000 12000 0 1 0 0 16042z"/>
+                <path fill="#e30a17" d="m0-30000h90000v60000H0z" />
+                <path
+                    fill="#fff"
+                    d="m41750 0 13568-4408-8386 11541V-7133l8386 11541zm925 8021a15000 15000 0 1 1 0-16042 12000 12000 0 1 0 0 16042z"
+                />
             </svg>
         </span>
     </div>
@@ -179,7 +187,7 @@
 {/if}
 
 <style>
-    .flag { 
+    .flag {
         margin-top: 20px;
         margin-left: 2px;
     }
@@ -208,6 +216,11 @@
         background-color: rgba(255, 255, 255, 0.7);
         z-index: 9999;
     }
-
-    
+    @media (max-width: 760px) {
+        .loading {
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+        }
+    }
 </style>
