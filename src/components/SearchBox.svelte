@@ -233,7 +233,7 @@
         </button>
     </div>
     <button class="btn btn-primary spaced" on:click={setSearchParams}
-        >Search Flights</button
+        >Search Flights ✈️</button
     >
 </div>
 

@@ -38,14 +38,17 @@
         }
     }
 
+    let isAscending = true;
+
     function sortByPrice(a: Flight, b: Flight): number {
-        return a.price - b.price;
+        return isAscending ? a.price - b.price : b.price - a.price;
     }
 
     function sortByDepartureTime(a: Flight, b: Flight): number {
         const [hourA, minA] = a.departureTime.split(":").map(Number);
         const [hourB, minB] = b.departureTime.split(":").map(Number);
-        return hourA * 60 + minA - (hourB * 60 + minB);
+        const result = hourA * 60 + minA - (hourB * 60 + minB);
+        return isAscending ? result : -result;
     }
 
     function sortByDuration(a: Flight, b: Flight): number {
@@ -59,10 +62,17 @@
                 )
                 .reduce((acc, curr) => acc + curr, 0);
 
-        return (
+        const result =
             convertDurationToMinutes(a.duration) -
-            convertDurationToMinutes(b.duration)
-        );
+            convertDurationToMinutes(b.duration);
+        return isAscending ? result : -result;
+    }
+
+    function toggleSortOrder() {
+        isAscending = !isAscending;
+        console.log("sortType", sortType);
+         // @ts-ignore
+        handleSortChange({ target: { value: sortType } }); // Call handleSortChange to re-sort
     }
 
     function handleSortChange(event: Event) {
@@ -147,6 +157,9 @@
             <option value="departureTime">Sort by Departure Time</option>
             <option value="duration">Sort by Flight Duration</option>
         </select>
+        <button on:click={toggleSortOrder} class="btn btn-primary toggle-sort-order">
+            {isAscending ? "Desc↓" : "Asc↑"}
+        </button>
     </div>
 
     <button
