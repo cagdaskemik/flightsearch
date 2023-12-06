@@ -5,14 +5,35 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #213547;
-  background-color: #ffffff;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+   /* general */
+ 
+   --sdt-color: #000; /** data to select(e.g date/time) text color (except header & buttons) */
+
+ 
+ 
+ 
+   /* time picker */
+
+   --sdt-clock-color: var(--sdt-color); /** time picker text color (watch "--sdt-color") */
+  
+ 
+   /* date picker */
+   --sdt-table-selected-bg: var(--sdt-bg-selected); /** selected date background color */
+   --sdt-table-disabled-date: #b22222; /** disabled dates text color */
+   --sdt-table-disabled-date-bg: #eee; /** disabled dates background color */
+   --sdt-table-bg: transparent; /** date picker inner table background color */
+   --sdt-table-data-bg-hover: #eee; /** table selection data hover background color */
+   --sdt-table-today-indicator: #000; /** date picker current day marker color */
+   
 }
 
 a {
@@ -20,7 +41,6 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
-
 a:hover {
   color: #535bf2;
 }
@@ -66,11 +86,9 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
-
   a:hover {
     color: #747bff;
   }
-
   button {
     background-color: #f9f9f9;
   }
